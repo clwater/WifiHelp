@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,12 +19,12 @@ import butterknife.ButterKnife;
 public class AdapterWifi extends BaseAdapter {
 
     private Context context;
-    private ArrayList<WIFI> datas;
+    private List<WIFI> datas;
 
     /**
      * 构造方法
      */
-    public AdapterWifi(Context context,ArrayList<WIFI> datas){
+    public AdapterWifi(Context context,List<WIFI> datas){
         this.context=context;
         this.datas=datas;
     }
@@ -59,6 +60,11 @@ public class AdapterWifi extends BaseAdapter {
 
         mHolder.textview_list_ssid.setText(wifi.getSsid());
         mHolder.textview_list_bssid.setText(wifi.getBssid());
+        String pwd = wifi.getPwd();
+        if (pwd == null){
+            pwd = "pwd not find";
+        }
+        mHolder.textview_list_pwd.setText(pwd);
 
         return convertView;
     }
@@ -68,6 +74,8 @@ public class AdapterWifi extends BaseAdapter {
         TextView textview_list_ssid;
         @BindView(R.id.textview_list_bssid)
         TextView textview_list_bssid;
+        @BindView(R.id.textview_list_pwd)
+        TextView textview_list_pwd;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this,v);

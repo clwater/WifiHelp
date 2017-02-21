@@ -113,6 +113,16 @@ public class WifiSearcher {
 class WIFI{
     String ssid;
     String bssid;
+    String pwd;
+
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
     public String getSsid() {
         return ssid;
