@@ -60,11 +60,8 @@ public class AdapterWifi extends BaseAdapter {
 
         mHolder.textview_list_ssid.setText(wifi.getSsid());
         mHolder.textview_list_bssid.setText(wifi.getBssid());
-        String pwd = wifi.getPwd();
-        if (pwd == null){
-            pwd = "pwd not find";
-        }
-        mHolder.textview_list_pwd.setText(pwd);
+        mHolder.textview_list_pwd.setText(wifi.getPwd());
+        //mHolder.textview_list_pwd.setText("等待搜索...");
 
         return convertView;
     }
